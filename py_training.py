@@ -2,10 +2,10 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：将一个列表的数据复制到另一个列表中。
+# 题目：输出 9*9 乘法口诀表。
 #
-# 程序分析：使用列表[:]。
+# 程序分析：分行与列考虑，共9行9列，i控制行，j控制列。
 
-a = [1, 2, 3]
-b = a.copy()
-print(b)
+for i in range(1, 10):
+    for j in range(1, i+1):
+        print("%d*%d=%d" %(i, j, i*j))
