@@ -2,12 +2,14 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：暂停一秒输出，并格式化当前时间。
+# 题目：古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，
+# 假如兔子都不死，问每个月的兔子总数为多少？
 
-import time
-print(time.localtime())
-print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
+# 程序分析：兔子的规律为数列1,1,2,3,5,8,13,21....
 
-time.sleep(1) # 暂停1秒
-
-print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
+def rabbit(num):
+    if num == 1 or num == 2:
+        return 1
+    else:
+        return rabbit(num-1) + rabbit(num-2)
+print(rabbit(36))
