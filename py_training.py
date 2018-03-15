@@ -2,23 +2,30 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：一个整数，它加上100后是一个完全平方数，再加上168又是一个完全平方数，请问该数是多少？
+# 题目：输入某年某月某日，判断这一天是这一年的第几天？
 
-# 程序分析：
-# 假设该数为 x。
-# 1、则：x + 100 = n2, x + 100 + 168 = m2
-# 2、计算等式：m2 - n2 = (m + n)(m - n) = 168
-# 3、设置： m + n = i，m - n = j，i * j =168，i 和 j 至少一个是偶数
-# 4、可得： m = (i + j) / 2， n = (i - j) / 2，i 和 j 要么都是偶数，要么都是奇数。
-# 5、从 3 和 4 推导可知道，i 与 j 均是大于等于 2 的偶数。
-# 6、由于 i * j = 168， j>=2，则 1 < i < 168 / 2 + 1。
-# 7、接下来将 i 的所有数字循环计算即可。
+# 程序分析：以3月5日为例，应该先把前两个月的加起来，然后再加上5天即本年的第几天，特殊情况，
+# 闰年且输入月份大于2时需考虑多加一天：
 
-for i in range(1, 85):
-    if 168 % i == 0:
-        j = 168 / i;
-        if i > j and (i+j) % 2 == 0 and (i-j) % 2 ==0:
-            m = (i+j) / 2
-            n = (i-j) / 2
-            x = n*n -100
-            print(x)
+# year = int(input('year:\n'))
+# mouth = int(input('mouth:\n'))
+# day = int(input('day:\n'))
+#
+# mouths = (0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334)
+# if 0 < mouth <=12:
+#     sum = mouths[mouth -1]
+# else:
+#     print('data error')
+# sum += day
+# if (year % 400 == 0) or ((year % 4 == 0) and (year % 100 !=0)):
+#     leap = 1
+# if (leap == 1) and (mouth > 2):
+#     sum += 1
+# print('it is the %dth day.' %sum)
+
+import time
+D = input('请输入年份，格式XXXX-XX-XX：')
+d = time.strptime(D, '%Y-%m-%d').tm_yday
+print(d)
+print(type(d))
+print('the {} day of this year!'.format(d))
