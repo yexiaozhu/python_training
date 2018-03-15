@@ -2,14 +2,27 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：输入三个整数x,y,z，请把这三个数由小到大输出。
+# 题目：斐波那契数列。
 #
-# 程序分析：我们想办法把最小的数放到x上，先将x与y进行比较，如果x>y则将x与y的值进行交换，然后再用x与z进行比较，
-# 如果x>z则将x与z的值进行交换，这样能使x最小。
-
-l = []
-for i in range(3):
-    x = int(input('输入第%d个整数：\n' %(i+1)))
-    l.append(x)
-l.sort()
-print(l)
+# 程序分析：斐波那契数列（Fibonacci sequence），又称黄金分割数列，
+# 指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……。
+#
+# 在数学上，费波那契数列是以递归的方法来定义：
+#
+# F0 = 0     (n=0)
+# F1 = 1    (n=1)
+# Fn = F[n-1]+ F[n-2](n>=2)
+def fib(n):
+    a, b = 1, 1
+    if n == 0:
+        return 0
+    else:
+        for i in range(n-1):
+            a, b = b, a+b
+        return a
+#输出第10个菲波那切数列
+print(fib(10))
+print(fib(0))
+print(fib(1))
+print(fib(2))
+print(fib(3))
