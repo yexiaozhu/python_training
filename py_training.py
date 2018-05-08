@@ -2,26 +2,13 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 判断101-200之间有多少个素数，并输出所有素数。
-# 质数（prime number）又称素数，有无限个。质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数。
-import logging
-from math import sqrt
+# 题目：打印出所有的"水仙花数"，所谓"水仙花数"是指一个三位数，其各位数字立方和等于该数本身。例如：153是一个"水仙花数"，因为153=1的三次方＋5的三次方＋3的三次方。
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-leap = 1
-h = 0
-prime_list = []
-numbers = range(101, 201)
-for m in range(101, 201):
-    k = int(sqrt(m + 1))
-    for i in range(2, k + 1):
-        if m % i == 0:
-            leap = 0
-            break
-    if leap == 1:
-        print(m)
-        prime_list.append(m)
-        h += 1
-    leap = 1
-
-print(len(prime_list))
+for number in range(100, 1000):
+    number_hundreds = int(number / 100)
+    number_ten = int(number / 10 % 10)
+    number_one = int(number % 10)
+    # print(number_one, number_ten, number_hundreds)
+    if number == number_hundreds ** 3 + number_ten ** 3 + number_one ** 3:
+        # print(number)
+        print('水仙花数', number)
