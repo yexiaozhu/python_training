@@ -2,14 +2,26 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：古典问题：有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，
-# 假如兔子都不死，问每个月的兔子总数为多少？
+# 判断101-200之间有多少个素数，并输出所有素数。
+# 质数（prime number）又称素数，有无限个。质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数。
+import logging
+from math import sqrt
 
-# 程序分析：兔子的规律为数列1,1,2,3,5,8,13,21....
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+leap = 1
+h = 0
+prime_list = []
+numbers = range(101, 201)
+for m in range(101, 201):
+    k = int(sqrt(m + 1))
+    for i in range(2, k + 1):
+        if m % i == 0:
+            leap = 0
+            break
+    if leap == 1:
+        print(m)
+        prime_list.append(m)
+        h += 1
+    leap = 1
 
-def rabbit(num):
-    if num == 1 or num == 2:
-        return 1
-    else:
-        return rabbit(num-1) + rabbit(num-2)
-print(rabbit(36))
+print(len(prime_list))
