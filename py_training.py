@@ -2,14 +2,18 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：利用条件运算符的嵌套来完成此题：学习成绩>=90分的同学用A表示，60-89分之间的用B表示，60分以下的用C表示。
+# 题目：输出指定格式的日期。
+import time
+from datetime import timedelta, datetime
 
-score = int(input('请输入成绩：'))
-if score >= 90:
-    grade = 'A'
-elif score >= 60:
-    grade = 'B'
-else:
-    grade = 'C'
-
-print('成绩：%d 属于 %s' % (score, grade))
+date_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+# print(time.localtime(time.time()))
+# print(date_time)
+birthday = '1991-12-10 5:0:0'
+# print(birthday)
+birthday_time = time.strptime(birthday, '%Y-%m-%d %H:%M:%S')
+print(type(birthday_time))
+print(type(datetime.now()))
+print(timedelta(days=5))
+next_day = datetime.now() + timedelta(days=1)
+print(next_day)
