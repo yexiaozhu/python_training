@@ -2,28 +2,15 @@
 #coding = utf-8
 #author = yexiaozhu
 
-#题目：打印出如下图案（菱形）:
-#    *
-#   ***
-#  *****
-# *******
-#  *****
-#   ***
-#    *
-# 程序分析：先把图形分成两部分来看待，前四行一个规律，后三行一个规律，利用双重for循环，第一层控制行，第二层控制列。
+#题目：有一分数序列：2/1，3/2，5/3，8/5，13/8，21/13...求出这个数列的前20项之和。
+# 程序分析：请抓住分子与分母的变化规律。
 
-from sys import stdout
-
-for i in range(4):
-    for j in range(2 - i + 1):
-        stdout.write(' ')
-    for k in range(2 * i + 1):
-        stdout.write('*')
-    print()
-
-for i in range(3):
-    for j in range(i + 1):
-        stdout.write(' ')
-    for k in range(4 - 2 * i + 1):
-        stdout.write('*')
-    print()
+a = 2
+b = 1
+s = 0
+for i in range(0, 20):
+    num = a / b
+    s += num
+    a, b = a+b, a
+    print(num)
+print(s)
