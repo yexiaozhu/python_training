@@ -14,4 +14,4 @@ for i in range(10):
         x1 = x2
         l.append(x2)
 print(l)
-print(l[-1])gi
+print(l[-1])
