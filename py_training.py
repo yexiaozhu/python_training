@@ -2,22 +2,22 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 一个数如果恰好等于它的因子之和，这个数就称为"完数"。例如6=1＋2＋3.编程找出1000以内的所有完数。
-from sys import stdout
+# 一球从100米高度自由落下，每次落地后反跳回原高度的一半；再落下，求它在第10次落地时，共经过多少米？第10次反弹多高？
+tour = []
+height = []
 
-for i in range(2, 1001):
-    k = []
-    n = -1
-    s = i
-    for j in range(1, i):
-        if i % j == 0:
-            n += 1
-            s -= j
-            k.append(j)
-    if s == 0:
-        print(i)
-        print(k)
-        for i in range(n+1):
-            # print(k[i])
-            stdout.write(str(k[i]))
-            stdout.write(' ')
+hei = 100.0  # 起始高度
+tim = 10  # 次数
+
+for i in range(1, tim + 1):
+    # 从第二次开始，落地时的距离应该是反弹高度乘以2（弹到最高点再落下）
+    if i == 1:
+        tour.append(hei)
+    else:
+        tour.append(2*hei)
+    hei /= 2
+    height.append(hei)
+print(tour)
+print(height)
+print('总高度：tour = {0}'.format(sum(tour)))
+print('第10次反弹高度：height = {0}'.format(height[-1]))
