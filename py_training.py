@@ -2,21 +2,17 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。
+# 题目：求s=a+aa+aaa+aaaa+aa...a的值，其中a是一个数字。例如2+22+222+2222+22222(此时共有5个数相加)，几个数相加由键盘控制。
 
-s = input('请输入字符串：\n')
-letters = 0
-space = 0
 number = 0
-others = 0
-for i in s:
-    if i.isalpha():
-        letters += 1
-    elif i.isspace():
-        space += 1
-    elif i.isalnum():
-        number += 1
-    else:
-        others += 1
+number_list = []
+n = int(input('n='))
+a = int(input('a='))
+for i in range(n):
+    number = number + a
+    a = a * 10
+    print(number)
+    number_list.append(number)
 
-print('字符串中英文字母：%d，空格：%d，数字：%d，其他：%d' %(letters, space, number, others))
+number_total = sum(number_list)
+print('总和：%d' % number_total)
