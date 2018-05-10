@@ -2,13 +2,28 @@
 #coding = utf-8
 #author = yexiaozhu
 
-#题目：两个乒乓球队进行比赛，各出三人。甲队为a,b,c三人，乙队为x,y,z三人。已抽签决定比赛名单。有人向队员打听比赛的名单。a说他不和x比，c说他不和x,z比，请编程序找出三队赛手的名单。
+#题目：打印出如下图案（菱形）:
+#    *
+#   ***
+#  *****
+# *******
+#  *****
+#   ***
+#    *
+# 程序分析：先把图形分成两部分来看待，前四行一个规律，后三行一个规律，利用双重for循环，第一层控制行，第二层控制列。
 
-# print(ord('x'))
-# print(ord('a'))
-for i in range(ord('x'), ord('z')+1):
-    for j in range(ord('x'), ord('z')+1):
-        for k in range(ord('x'), ord('z')+1):
-            if (i != j) and (j != k) and (k != i):
-                if (i != ord('x')) and (k != ord('x') and k != ord('z')):
-                    print('order is a -- %s\t b -- %s\t c--%s' % (chr(i),chr(j),chr(k)))
+from sys import stdout
+
+for i in range(4):
+    for j in range(2 - i + 1):
+        stdout.write(' ')
+    for k in range(2 * i + 1):
+        stdout.write('*')
+    print()
+
+for i in range(3):
+    for j in range(i + 1):
+        stdout.write(' ')
+    for k in range(4 - 2 * i + 1):
+        stdout.write('*')
+    print()
