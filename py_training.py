@@ -2,18 +2,21 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：输出指定格式的日期。
-import time
-from datetime import timedelta, datetime
+# 题目：输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。
 
-date_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
-# print(time.localtime(time.time()))
-# print(date_time)
-birthday = '1991-12-10 5:0:0'
-# print(birthday)
-birthday_time = time.strptime(birthday, '%Y-%m-%d %H:%M:%S')
-print(type(birthday_time))
-print(type(datetime.now()))
-print(timedelta(days=5))
-next_day = datetime.now() + timedelta(days=1)
-print(next_day)
+s = input('请输入字符串：\n')
+letters = 0
+space = 0
+number = 0
+others = 0
+for i in s:
+    if i.isalpha():
+        letters += 1
+    elif i.isspace():
+        space += 1
+    elif i.isalnum():
+        number += 1
+    else:
+        others += 1
+
+print('字符串中英文字母：%d，空格：%d，数字：%d，其他：%d' %(letters, space, number, others))
