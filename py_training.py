@@ -2,16 +2,14 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：利用递归方法求5!。
-# 递归公式：fn=fn_1*4!
+# 题目：利用递归函数调用方式，将所输入的5个字符，以相反顺序打印出来。
 
-def fact(j):
-    sum = 0
-    if j == 0:
-        sum = 1
-    else:
-        sum = j * fact(j-1)
-    return sum
+def output(s, l):
+    if l == 0:
+        return
+    print(s[l-1])
+    output(s, l-1)
 
-print(fact(5))
-print(fact(20))
+s = input('请输入字符串：')
+l = len(s)
+output(s, l)
