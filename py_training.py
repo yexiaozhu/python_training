@@ -2,9 +2,15 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：按逗号分隔列表。
+# 题目：练习函数调用。
+def hello_world():
+    print('hello world')
 
-l = [1, 2, 3, 4, 5]
-s = 0
-s = ','.join(str(i) for i in l)
-print(s)
+
+def three_hellos():
+    for i in range(3):
+        hello_world()
+
+
+if __name__ == '__main__':
+    three_hellos()
