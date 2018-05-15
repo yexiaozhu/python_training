@@ -2,9 +2,9 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：按相反的顺序输出列表的值。
+# 题目：按逗号分隔列表。
 
-a = ['one', 'two', 'three']
-print(a[::-1])
-for i in a[::-1]:
-    print(i)
+l = [1, 2, 3, 4, 5]
+s = 0
+s = ','.join(str(i) for i in l)
+print(s)
