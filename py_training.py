@@ -2,17 +2,38 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：一个5位数，判断它是不是回文数。即12321是回文数，个位与万位相同，十位与千位相同。
+# 题目：请输入星期几的第一个字母来判断一下是星期几，如果第一个字母一样，则继续判断第二个字母。
+#
+# 程序分析：用情况语句比较好，如果第一个字母一样，则判断用情况语句或if语句判断第二个字母。。
 
-a = int(input("请输入一个数字:\n"))
-x = str(a)
-flag = True
+s1 = input('请输入首字母：')
+if s1 == 'S':
+    s2 = input('请输入次字母：')
+    if s2 == 'a':
+        print('Saturday')
+    elif s2 == 'u':
+        print('Sunday')
+    else:
+        print('data error')
 
-for i in range(int(len(x) / 2)):
-    if x[i] != x[-i - 1]:
-        flag = False
-        break
-if flag:
-    print("%d 是一个回文数!" % a)
+elif s1 == 'F':
+    print('Friday')
+
+elif s1 == 'M':
+    print('Monday')
+
+elif s1 == 'T':
+    print('please input second letter')
+    s2 = input("please input:")
+
+    if s2 == 'u':
+        print('Tuesday')
+    elif s2 == 'h':
+        print('Thursday')
+    else:
+        print('data error')
+
+elif s1 == 'W':
+    print('Wednesday')
 else:
-    print("%d 不是一个回文数!" % a)
+    print('data error')
