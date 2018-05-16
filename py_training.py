@@ -2,16 +2,18 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：求100之内的素数。
-# 用户输入数据
-lower = int(input("输入区间最小值: "))
-upper = int(input("输入区间最大值: "))
+# 列表排序
 
-for num in range(lower, upper + 1):
-    # 素数大于 1
-    if num > 1:
-        for i in range(2, num):
-            if (num % i) == 0:
-                break
-        else:
-            print(num)
+def bubble(list):
+    list_len = len(list)
+    while list_len > 0:
+        for j in range(list_len - 1):
+            if list[j] > list[j+1]:
+                list[j], list[j+1] = list[j+1], list[j]
+            print('j:', j)
+            print('list=', list)
+        list_len -= 1
+    # print('list=', list)
+list = [1, 25, 15, 7, 10, 5]
+#list = [1, 25]
+bubble(list)
