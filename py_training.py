@@ -2,18 +2,16 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：文本颜色设置。
+# 题目：求100之内的素数。
+# 用户输入数据
+lower = int(input("输入区间最小值: "))
+upper = int(input("输入区间最大值: "))
 
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-# print(bcolors.WARNING)
-# print(bcolors.ENDC)
-print(bcolors.OKBLUE + "123444?" + bcolors.ENDC)
-# print('\033[1;31;40m')
+for num in range(lower, upper + 1):
+    # 素数大于 1
+    if num > 1:
+        for i in range(2, num):
+            if (num % i) == 0:
+                break
+        else:
+            print(num)
