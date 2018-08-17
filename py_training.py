@@ -2,18 +2,17 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 列表排序
-
-def bubble(list):
-    list_len = len(list)
-    while list_len > 0:
-        for j in range(list_len - 1):
-            if list[j] > list[j+1]:
-                list[j], list[j+1] = list[j+1], list[j]
-            print('j:', j)
-            print('list=', list)
-        list_len -= 1
-    # print('list=', list)
-list = [1, 25, 15, 7, 10, 5]
-#list = [1, 25]
-bubble(list)
+# 题目：求一个3*3矩阵主对角线元素之和。
+# 程序分析：利用双重for循环控制输入二维数组，再将a[i][i]累加后输出。
+if __name__ == '__main__':
+	a = []
+	sum = 0.0
+	for i in range(3):
+		# print('a:', a)
+		a.append([])
+		for j in range(3):
+			a[i].append(float(input("input num:\n")))
+	for k in range(3):
+		sum += a[k][k]
+	print('a:', a)
+	print('sum:', sum)
