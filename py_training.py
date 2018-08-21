@@ -2,28 +2,17 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：模仿静态变量的用法。
-# 程序分析：无。
+# 题目：学习使用auto定义变量的用法。
+# 程序分析：没有auto关键字，使用变量作用域来举例吧。
 
-def varfunc():
-    var = 0
-    print('var = %d' %var)
-    var += 1
+num = 2
+def autofunc():
+    num = 1
+    print('internal block num = %d' % num)
+    num += 1
     
-if __name__ == '__main__':
-    for i in range(3):
-        varfunc()
-        
-# 类的属性
-# 作为类的一个属性吧
-class Static:
-    StaticVar = 5
-    def varfun(self):
-        self.StaticVar += 1
-        print(self.StaticVar)
-        
-print('Static.StaticVar', Static.StaticVar)
-a = Static()
 for i in range(3):
-    a.varfun()
+    print('The num = %d' % num)
+    num += 1
+    autofunc()
     
