@@ -2,17 +2,20 @@
 #coding = utf-8
 #author = yexiaozhu
 
-# 题目：学习使用auto定义变量的用法。
-# 程序分析：没有auto关键字，使用变量作用域来举例吧。
+# 模仿静态变量(static)案例
+# 演示一个python作用域使用方法
 
-num = 2
-def autofunc():
-    num = 1
-    print('internal block num = %d' % num)
-    num += 1
-    
-for i in range(3):
-    print('The num = %d' % num)
-    num += 1
-    autofunc()
-    
+class Num:
+    nNum = 1
+    def inc(self):
+        self.nNum += 1
+        print('nNum = %d' %self.nNum)
+        
+if __name__ == "__main__":
+    nNum = 2
+    inst = Num()
+    for i in range(3):
+        nNum += 1
+        print('The num = %d' %nNum)
+        # inst = Num()
+        inst.inc()
