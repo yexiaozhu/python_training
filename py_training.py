@@ -1,14 +1,29 @@
-#！ /usr/bin/env python 3.5.2
+#！ /usr/bin/env python 3.6.5
 #coding = utf-8
 #author = yexiaozhu
 
-# 将一个数组逆序输出。
-# 程序分析：用第一个与最后一个交换。
- 
+# 题目：模仿静态变量的用法。
+# 程序分析：无。
+
+def varfunc():
+    var = 0
+    print('var = %d' %var)
+    var += 1
+    
 if __name__ == '__main__':
-	a = [9,6,5,4,1]
-	N = len(a)
-	print(a)
-	for i in range(int(N / 2)):
-		a[i], a[N - i -1] = a[N - i - 1], a[i]
-	print(a)
+    for i in range(3):
+        varfunc()
+        
+# 类的属性
+# 作为类的一个属性吧
+class Static:
+    StaticVar = 5
+    def varfun(self):
+        self.StaticVar += 1
+        print(self.StaticVar)
+        
+print('Static.StaticVar', Static.StaticVar)
+a = Static()
+for i in range(3):
+    a.varfun()
+    
